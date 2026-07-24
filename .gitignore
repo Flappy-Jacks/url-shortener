@@ -1,0 +1,25 @@
+# --- Python / backend ---
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Local SQLite database — this is generated data, not source code.
+# Once you deploy with Postgres this line stops mattering, but keep it for now.
+*.db
+
+# --- Node / frontend ---
+node_modules/
+dist/
+
+# --- Secrets ---
+# You don't have one yet, but the moment you add API keys, DB passwords, etc.,
+# they go in a .env file — and .env must NEVER be committed.
+.env
+.env.local
+
+# --- OS / editor noise ---
+.DS_Store
+Thumbs.db
+.vscode/
