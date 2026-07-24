@@ -27,6 +27,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+print(f"CORS allowed origins: {allowed_origins}")
 
 ALPHABET = string.ascii_letters + string.digits
 
