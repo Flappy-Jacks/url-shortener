@@ -1,3 +1,4 @@
+import os
 import secrets
 import string
 
@@ -16,6 +17,10 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI(title="URL Shortener")
 
 # Allow the local Vite dev server to call this API.
+extra_origins = os.environ.get("ALLOWED_ORIGINS", "")
+allowed_origins = ["http://localhost:5173"] + [
+    o.strip() for o in extra_origins.split(",") if o.strip()
+]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173"],
