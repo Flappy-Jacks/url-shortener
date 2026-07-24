@@ -10,6 +10,7 @@ DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///./shortener.db")
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
+print(f"Using DATABASE_URL starting with: {DATABASE_URL[:15]}")
 connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
 
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
